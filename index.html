@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vue双向绑定原理及实现</title>
+
+</head>
+
+<body>
+	<div id="app">
+		<input class="form-control" v-model="name" type="text">
+		<h1>{{name}}</h1>
+		<input class="form-control" v-model="person.text" type="text">
+		<div v-text="person.text"></div>
+		<div v-html="person.html"></div>
+
+		<div v-on:click="handleClick">按钮</div>
+		<img v-bind:src="src" name="cjj" v-bind:xm="name" width=100 />
+	</div>
+
+	<script src="./js/observer.js"></script>
+	<script src="./js/watcher.js"></script>
+	<script src="./js/compile.js"></script>
+	<script src="./js/index.js"></script>
+	<script>
+		const vm = new Mvue({
+			el: "#app",
+			data: {
+				person: {
+					text: "cjj",
+					html: "<h1>html</h1>"
+				},
+				name: "我是摩登",
+				src: 'https://file-xz.veimg.cn/lms/dev/cert/2020/11/6072-1605629864.png'
+			},
+			methods: {
+				handleClick: function () {
+					console.log(111)
+				}
+			},
+		});
+
+	</script>
+</body>
+
+</html>
